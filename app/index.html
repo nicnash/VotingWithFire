@@ -21,23 +21,27 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+{{message}}
+{{loc}}
+{{$route.current.activetab}}
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
+          <li ng-class="{active: $route.current.activetab == ''}"><a ng-href="#">Home</a></li>
           <!-- //angularfire -->
-          <li><a ng-href="#/chat">chat</a></li>
-          <li>
+          <li ng-class="{active: $route.current.activetab == 'chat'}"><a ng-href="#/chat">chat</a></li>
+          <li ng-class="{active: $route.current.activetab == 'login' || $route.current.activetab == 'account'}">
             <a ng-hide-auth="" href="#/login">log in</a>
             <a ng-show-auth="" href="#/account">account</a>
           </li>
           </ul>
         <h3 class="text-muted">votingWithFire</h3>
       </div>
-
       <div ng-view=""></div>
 
       <div class="footer">
+        {{message}}
+
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team, and from Firebase</p>
       </div>
     </div>

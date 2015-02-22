@@ -8,5 +8,8 @@
  * Controller of the votingWithFireApp
  */
 angular.module('votingWithFireApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope,$rootScope,$location, $route) {
+    // $rootScope.message = "hello world#{#{$@#{@#{$#{@$@#{$@#{$@#{$@#{$@#{$@#{$}}}}}}}}}}}";
+    $rootScope.$route = $route;
+    // $rootScope.loc = $location.path();
   });

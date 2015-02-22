@@ -59,22 +59,27 @@ angular.module('votingWithFireApp')
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        activetab: ''
       })
 
       .when('/login', {
         templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
+        activetab: 'login'
       })
 
       .whenAuthenticated('/chat', {
         templateUrl: 'views/chat.html',
-        controller: 'ChatCtrl'
+        controller: 'ChatCtrl',
+        activetab: 'chat'
       })
 
       .whenAuthenticated('/account', {
         templateUrl: 'views/account.html',
-        controller: 'AccountCtrl'
+        controller: 'AccountCtrl',
+        activetab: 'account'
+
       })
       .otherwise({redirectTo: '/'});
   }])
