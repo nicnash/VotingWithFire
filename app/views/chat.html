@@ -2,17 +2,17 @@
 <h2>Chat</h2>
 
 <form>
-  {{user.twitter.username}} <input placeholder="Message..." ng-model="newMessage">
+  <input placeholder="Message..." ng-model="newMessage">
   <button type="submit" ng-click="addMessage(newMessage);newMessage = null;">send</button>
 </form>
 <div class="row">
   <ul id="messages" ng-show="messages.length">
 
     <li ng-repeat="message in messages | reverse">
-      <div class="col-lg-2">
+      <div class="col-xs-2">
         {{message.name}}:
       </div>        
-      <div class="col-lg-10">
+      <div class="col-xs-10">
         {{message.text}}
       </div>
     </li>
