@@ -67,7 +67,7 @@ angular.module('votingWithFireApp')
         controller: 'LoginCtrl'
       })
 
-      .when('/chat', {
+      .whenAuthenticated('/chat', {
         templateUrl: 'views/chat.html',
         controller: 'ChatCtrl'
       })
@@ -75,11 +75,6 @@ angular.module('votingWithFireApp')
       .whenAuthenticated('/account', {
         templateUrl: 'views/account.html',
         controller: 'AccountCtrl'
-      })
-
-      .when('/chat', {
-        templateUrl: 'views/chat.html',
-        controller: 'ChatCtrl'
       })
       .otherwise({redirectTo: '/'});
   }])

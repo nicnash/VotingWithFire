@@ -7,10 +7,12 @@
  * A demo of using AngularFire to manage a synchronized list.
  */
 angular.module('votingWithFireApp')
-  .controller('ChatCtrl', function ($scope, fbutil, $timeout) {
+  .controller('ChatCtrl', function ($scope, fbutil, user, $timeout) {
     // synchronize a read-only, synchronized array of messages, limit to most recent 10
     $scope.messages = fbutil.syncArray('messages', {limitToLast: 10});
+    $scope.user = user;
 
+    console.log($scope.user);
     // display any errors
     $scope.messages.$loaded().catch(alert);
 
@@ -18,7 +20,7 @@ angular.module('votingWithFireApp')
     $scope.addMessage = function(newMessage) {
       if( newMessage ) {
         // push a message to the end of the array
-        $scope.messages.$add({text: newMessage})
+        $scope.messages.$add({name:user.twitter.username,text: newMessage})
           // display any errors
           .catch(alert);
       }
